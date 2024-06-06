@@ -1,1 +1,2 @@
-/foo    /.netlify/functions/server/foo
+/foo            /.netlify/functions/server/foo
+/api/v2/jwks    /.netlify/functions/server/jwks
