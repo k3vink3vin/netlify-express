@@ -23,6 +23,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.use('/api/v2/jwks', (req, res) => res.sendFile(path.join(__dirname, '../jwks.json')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
