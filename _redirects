@@ -1,5 +1,6 @@
 /foo              /.netlify/functions/server/foo
 /api/v2/jwks      /.netlify/functions/server/int/jwks
+/dev/api/v2/jwks  /.netlify/functions/server/dev/jwks
 /int/api/v2/jwks  /.netlify/functions/server/int/jwks
 /uat/api/v2/jwks  /.netlify/functions/server/uat/jwks
 /stg/api/v2/jwks  /.netlify/functions/server/stg/jwks

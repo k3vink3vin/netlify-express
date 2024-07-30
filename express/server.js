@@ -19,6 +19,31 @@ router.get('/foo', async (req, res) => {
   res.send({foo: 'bar'});
 });
 
+router.get('/dev/jwks', async (req, res) => {
+  console.log("dev jwks requested");
+  res.send({
+    "keys": [
+      {
+        "kty": "EC",
+        "kid": "ABC123",
+        "x5c": [
+          "MIIBbzCCASGgAwIBAgIUDIXWPASo8ANBTs2u2EAt+407gTUwBQYDK2VwMCExHzAdBgNVBAMMFmRpZ2ltYXJjLmNvbTpkc2luOnJvb3QwHhcNMjMwNjIyMjIyOTExWhcNMjYwMzE4MjIyOTExWjApMScwJQYDVQQDDB5kaWdpbWFyYy5jb206ZHNpbjppbnRlcm1lZGlhdGUwKjAFBgMrZXADIQAd85R/qcYDIBowLGQyMtxL9otCBAgyeS1QkQNFwVWfAKNjMGEwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUQa/9C0hNQYTfpnkX/y71WIvNG/YwHwYDVR0jBBgwFoAU2HSLIwyn6rQ0iSDYOYUXUUnTnJIwCwYDVR0PBAQDAgGmMAUGAytlcANBADDu6RtM7Miue+BOhJV34uo7eT6amOgxTIxizFzd4IOXHdddlM+9xurGVZ0B197W7f0i4kKB4XV4np6//UjgtQc=",
+          "MIIBBDCBtwIUaP+stH67Krd8Og0iQbfxheWkilIwBQYDK2VwMCkxJzAlBgNVBAMMHmRpZ2ltYXJjLmNvbTpkc2luOmludGVybWVkaWF0ZTAeFw0yMzA2MjIyMjI5MTFaFw0yNDA2MjEyMjI5MTFaMCExHzAdBgNVBAMMFmRpZ2ltYXJjLmNvbTpkc2luOmxlYWYwKjAFBgMrZXADIQBAFmEdGuCahcgAVi3fTaVVMoE9G5vd2Id4LygnTdYofjAFBgMrZXADQQC6a5X+VxFcIwn+/4vQXOqo+stPYaI5iwyf5PRSy4zvLQKLW8WyfOpm95iK67AikD9DSzsTfSEfnJOra4vgIZkM"
+        ]
+      },
+      {
+        "x5c": [
+          "MIIFWzCCA0MCFFXLR4r+5kl+tKk9xZmYpKu61JxpMA0GCSqGSIb3DQEBCwUAMG0xCzAJBgNVBAYTAlVTMQ8wDQYDVQQIDAZPcmVnb24xETAPBgNVBAcMCFBvcnRsYW5kMRUwEwYDVQQKDAxEaWdpbWFyYyBJbmMxIzAhBgNVBAMMGmRldi5kbXJjLmlvOmxpY2Vuc2luZzpyb290MB4XDTIxMDkyMzA0MDM0NVoXDTI0MDkyMjA0MDM0NVowZzELMAkGA1UEBhMCVVMxDzANBgNVBAgMBk9yZWdvbjERMA8GA1UEBwwIUG9ydGxhbmQxFTATBgNVBAoMDERpZ2ltYXJjIEluYzEdMBsGA1UEAwwUZG1yYy5pbzpsYnJva2VyLTIwMjAwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDwi2+4jvwO4gupzmbnKXd8tn4KEg/8h2pv24v8QesQu0w347fa8QT7rafSpfJUA51v3qORVa7dGR7gNdpdYVGLrlOLPFYC7z38UVXk17be4fJVMt46HjlC7T6qzAQXbKzL0UhinTVpu3o1MpbPYYOHTllXXmpb+/SsGYDZAnPkaYdPDitis4i/eaV2I9ni2p8EcJuITzBKK/EDmRuqtVDLC4dC5nwqnJMPywKYw+nNRiZ9kQ6w+VzBqfc6at3mZdy45zcOT7lRSx5MuQVkPgK3VbJG0exH5J7gypFYtAKbZw6KLKVC7j6/LzO2SpGioyI3OrIQ1k6YBSuFB59AWlNJCQvVxzBLllCOkN97Yu9lH4drUc4GG4KWuYWa6WBGzNS1omnbc17d/RP4MSZ+uwh/DqyWTan2XKgELPfJVZ4U9uTjMhS+HLoUEt6syh7qym+r+/qZdz2l872BA87dawa9Bml1GLAjG1qK41/BEBFaaNtxbYUsx6dvaAMXDazs8aE2CDgrBB2IIOAf+qMeXw/vrGf4IdtDhCEXeWtPdDy3jiOp6QaYn0rTkKbaVyoCSu8O1u7CHmgjyUoQZ2U9nMA61FN2cmP9BT6QklJndS8qOrptPMs82EilUeTzCT1uEwJhf8KBQEzCcnXfYROa3HbrUBrmHUn0Eya4t0J18MT8nwIDAQABMA0GCSqGSIb3DQEBCwUAA4ICAQAWSrLm/r4Rt+CPsQQZSMA0Q9nn+YTT7QfpQVrLDsebgdneSnZljP4Cv0uH7nh/rdcmr8Yy2C9nF6j9AXShZVFkTvtrr63Zc0b7lUrkNaV6RBDuAZMoNNIpX/apcsUTav+5PCmd8h0p0qgBAmf1xnvFSamrpwfNSVMglEw9ynlDybygnIedQKlmPYnM8e3Xfn4R6sSm3nJlBNiO/vO0NUO2dnxtYIqP/qplQn3ES0NBKZBMISr+CUegtJSoC86de3ld//5ybHAfpCYtsFLfKuEVzSiBcqF/01cLcs4yKouPtNCdx3gESQn1iBSGJiX+EiVdiyKkmfOp/BLOJ7rvI8FxVwen+4svJz7J8tIwQNE0GTn5eAQNn+Ku3Q0kfCktVjvUFUjkWQj+Y5S0wse0pkw3RZnX+JsRkdp/0yvQAvelL2rYvAmBhhcRidJvXQKifpfx3xEyrn5yFi38jvRF1GADe3xSIM2SBU8WxJKXAjnBtbvZbzBf0tP+WK6yZDL7ezp6Q5FJWidSvy4MRlXr1U3zB3tNzUKVLLpE7gop6rKR5louBqB0p3GaWvsqkiSyZ5elayW3Ppgl5WxiHjWWw9Lm0vffcErfIzh/LP7oz+iRBWNiMNEVTdgZ7mTBlyrgMbeZl1SjlHJkRBnEeqvmmBxp+pXFvKt01D70OxTAuR0tPA=="
+        ]
+      },
+      {
+        "kty": "GBG",
+        "mod" : 42
+      }
+    ]
+  });
+});
+
 router.get('/int/jwks', async (req, res) => {
   console.log("int jwks requested");
   res.send(
